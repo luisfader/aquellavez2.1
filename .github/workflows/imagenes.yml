@@ -1,0 +1,44 @@
+name: Importar imágenes desde Figma
+# Lee tools/imagenes.txt (nombre, tamaño máximo, URL de Figma), descarga cada
+# imagen, la optimiza en JPG y WebP y la guarda en img/ (GitHub Pages se actualiza solo).
+on:
+  push:
+    paths: ['tools/imagenes.txt']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: imagenes
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar y optimizar
+        run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y imagemagick webp >/dev/null
+          mkdir -p img tmp
+          while read -r nombre tam url; do
+            case "$nombre" in ''|\#*) continue;; esac
+            echo "→ $nombre"
+            if ! curl -sSfL --retry 2 -o "tmp/$nombre.png" "$url"; then echo "::warning::No se pudo descargar $nombre"; continue; fi
+            entrada="tmp/$nombre.png"
+            if [ "${nombre#p-}" != "$nombre" ]; then
+              # Retratos: quitar el aro naranja del recorte de Figma y dejar un cuadrado
+              convert "$entrada" -background white -alpha remove -alpha off -gravity center -crop 84%x84%+0+0 +repage "tmp/$nombre-r.png"
+              entrada="tmp/$nombre-r.png"
+            fi
+            convert "$entrada" -background white -alpha remove -alpha off -resize "${tam}x${tam}>" -strip -interlace Plane -quality 84 "img/$nombre.jpg"
+            convert "$entrada" -background white -alpha remove -alpha off -resize "${tam}x${tam}>" "tmp/$nombre-w.png"
+            cwebp -quiet -q 80 "tmp/$nombre-w.png" -o "img/$nombre.webp" || true
+          done < tools/imagenes.txt
+          ls -la img
+      - name: Guardar en main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add img
+          if git commit -m "Imágenes importadas desde Figma"; then
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

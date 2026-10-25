@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aquella vez 2 · Manual de español de Luis Fader</title>
+  <meta name="description" content="Aquella vez 2, manual de español para extranjeros de Luis Fader: historias, diálogos y cultura del mundo hispanohablante con ejercicios interactivos y traducción al ruso.">
+  <meta name="theme-color" content="#3a1d24">
+  <meta property="og:title" content="Aquella vez 2 · Manual de español">
+  <meta property="og:description" content="Historias, diálogos y cultura del mundo hispanohablante, con ejercicios interactivos.">
+  <meta property="og:image" content="img/portada-libro.jpg">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="inicio">
+  <header class="barra">
+    <div class="barra__fila">
+      <a class="marca" href="index.html">Aquella vez<small>2</small></a>
+      <nav class="barra__nav" aria-label="Secciones">
+        <a href="#unidades">Unidades</a>
+        <a href="#personajes-titulo">Personajes</a>
+        <a href="#prologo-titulo">Prólogo</a>
+      </nav>
+      <div class="ajustes">
+        <button class="ajustes__boton" id="ajustes-boton" type="button" aria-expanded="false" aria-controls="ajustes-panel" aria-label="Ajustes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+        </button>
+        <div class="ajustes__panel" id="ajustes-panel" hidden></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="inicio__hero" aria-labelledby="titulo-libro">
+      <div class="libro">
+        <picture>
+          <source srcset="img/portada-libro.webp" type="image/webp">
+          <img src="img/portada-libro.jpg" alt="Portada de Aquella vez 2: Luis y Natalia bailan tango en una calle de Buenos Aires" width="900" height="1272">
+        </picture>
+      </div>
+      <div class="inicio__texto">
+        <h1 id="titulo-libro">Aquella vez<span>2</span></h1>
+        <p class="inicio__sub">Manual de español para extranjeros</p>
+        <p class="inicio__desc">Luis, Natalia, Alicia y Roberto viven, viajan, se enamoran y se equivocan. Lee sus historias, escucha sus diálogos y practica con ejercicios que se corrigen solos.</p>
+        <p class="ru" lang="ru">Учебник испанского языка: истории, диалоги и культура испаноязычного мира. Нажмите на подчёркнутое слово — увидите перевод на русский.</p>
+        <div class="inicio__acciones">
+          <a class="btn btn--oro" href="unidad1.html">Empezar la Unidad 1</a>
+          <a class="btn btn--fantasma" id="continuar" href="unidad1.html" hidden>Seguir donde lo dejé</a>
+          <a class="btn btn--fantasma" href="#personajes-titulo">Conocer a los personajes</a>
+        </div>
+        <p class="inicio__autor">Un libro de <b>Luis Fader</b></p>
+      </div>
+    </section>
+
+    <section class="mesa" id="unidades" aria-labelledby="unidades-titulo">
+      <div class="mesa__cabecera">
+        <h2 class="mesa__titulo" id="unidades-titulo">Las unidades</h2>
+        <p class="mesa__pista">Las cartas boca arriba ya se pueden abrir. Las demás se irán revelando.
+          <span class="ru" lang="ru">Открытые карты — доступные разделы. Остальные откроются позже.</span></p>
+      </div>
+      <ol class="baraja" id="baraja"></ol>
+    </section>
+
+    <section class="mesa" aria-labelledby="personajes-titulo">
+      <div class="pagina">
+        <h2 class="pagina__titulo" id="personajes-titulo">Los personajes</h2>
+        <p class="lema pagina__lema">Cada uno guarda un secreto… y alguno, más de uno.</p>
+        <p class="ru" lang="ru" style="text-align:center">Нажмите на персонажа, чтобы узнать о нём больше.</p>
+        <ul class="personajes" id="personajes"></ul>
+        <div class="relaciones">
+          <div>
+            <h3>¿Quién es quién?</h3>
+            <ul id="quien-es-quien"></ul>
+          </div>
+          <div>
+            <h3>Las familias</h3>
+            <div id="familias"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mesa" aria-labelledby="prologo-titulo">
+      <div class="pagina">
+        <div class="prologo">
+          <div class="prologo__foto">
+            <picture>
+              <source srcset="img/prologo-autor.webp" type="image/webp">
+              <img src="img/prologo-autor.jpg" alt="Luis Fader, autor del manual" loading="lazy">
+            </picture>
+          </div>
+          <div class="prologo__texto">
+            <h2 class="pagina__titulo" id="prologo-titulo" style="text-align:left;margin-bottom:22px">Prólogo</h2>
+            <p>Cuando escribí el primer manual de <i>Aquella vez</i>, quise demostrar que aprender español podía ser mucho más que estudiar reglas y memorizar palabras. En este segundo libro quiero continuar ese camino, pero ir un poco más lejos: entrar también en la historia, la cultura, las emociones y la manera de ver el mundo que existen detrás de nuestra lengua.</p>
+            <p>Para mí, el español no es solamente un instrumento de comunicación. Es la lengua de una enorme comunidad formada por pueblos diferentes de España y de Hispanoamérica, unidos por siglos de historia, literatura, música, arte y experiencias compartidas. Aprender español significa también acercarse a esa civilización, comprender sus diferencias y descubrir aquello que todavía une a millones de personas.</p>
+            <p>Por eso este manual vuelve a estar lleno de personajes, diálogos e historias. Luis, Natalia, Alicia, Roberto, Marcos y los demás no aparecen solamente para explicar gramática: viven, viajan, se enamoran, se equivocan, recuerdan y toman decisiones. Creo que una lengua se aprende mejor cuando deja de ser una lista de estructuras y empieza a convertirse en una experiencia humana.</p>
+            <p>También hay detrás de estas páginas una idea que considero importante: en un mundo cada vez más uniforme, conocer una lengua y su cultura es una forma de conservar la diversidad. Quiero que este libro ayude al estudiante no solamente a hablar mejor español, sino también a comprender, valorar y mantener viva la enorme riqueza del mundo hispanohablante.</p>
+            <p>Espero que este segundo viaje sea más profundo que el primero, pero también más libre, más humano y más nuestro.</p>
+            <p class="firma">Luis Fader<small>Septiembre de 2026</small></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <b>Aquella vez 2</b>
+    Manual de español para extranjeros de Luis Fader. Tu progreso se guarda solo en este navegador.
+  </footer>
+
+  <script src="js/datos.js"></script>
+  <script src="js/motor.js"></script>
+  <script>AV.montarPortada();</script>
+</body>
+</html>

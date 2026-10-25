@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unidad 1 · Gustos, rutinas y un viaje misterioso · Aquella vez 2</title>
+  <meta name="description" content="Aquella vez 2, manual de español de Luis Fader. Unidad 1: Gustos, rutinas y un viaje misterioso. Diálogos con audio, traducción al ruso y ejercicios interactivos.">
+  <meta name="theme-color" content="#3a1d24">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="barra__fila">
+      <a class="marca" href="index.html" title="Volver a la portada">Aquella vez<small>2</small></a>
+      <span class="barra__unidad">Unidad 1</span>
+      <span class="barra__espacio"></span>
+      <div class="progreso-mini" id="progreso-mini" title="Ejercicios hechos en esta unidad">
+        <div class="progreso-mini__barra"><i></i></div><span>0 %</span>
+      </div>
+      <div class="ajustes">
+        <button class="ajustes__boton" id="ajustes-boton" type="button" aria-expanded="false" aria-controls="ajustes-panel" aria-label="Ajustes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+        </button>
+        <div class="ajustes__panel" id="ajustes-panel" hidden></div>
+      </div>
+    </div>
+    <div id="apartados-barra"></div>
+  </header>
+
+  <main class="unidad" id="unidad"></main>
+
+  <footer class="pie">
+    <b>Aquella vez 2</b>
+    Toca las palabras subrayadas para ver la traducción. Tu progreso se guarda solo en este navegador.
+  </footer>
+
+  <script src="js/datos.js"></script>
+  <script src="js/motor.js"></script>
+  <script src="js/unidad1.js"></script>
+  <script>AV.montarUnidad(window.UNIDAD);</script>
+</body>
+</html>
